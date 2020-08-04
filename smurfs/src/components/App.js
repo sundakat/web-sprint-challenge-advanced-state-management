@@ -1,16 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.scss";
-import SmurfList from "./SmurfList";
+import SmurfsList from './SmurfsList';
+import SmurfsForm from './SmurfsForm';
 
-class App extends Component {
-  render() {
+function App(){
     return (
       <div className="App">
-        <h1>Smurf State Management!</h1>
-        <SmurfList />
+        <h1>Smurfy State Management!</h1>
+        
+        
+        <SmurfsForm />
+        <hr/>
+        <SmurfsList />
       </div>
     );
-  }
+  
 }
 
 export default App;
