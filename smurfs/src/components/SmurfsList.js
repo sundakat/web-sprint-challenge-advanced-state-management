@@ -19,6 +19,8 @@ const mapStateToProps = (state) => {
     return {
         smurfs: state.smurfs,
         isFetching: state.isFetching,
+        isPosting: state.isPosting,
+        isDeleting: state.isDeleting,
         error: state.error
     }
 }

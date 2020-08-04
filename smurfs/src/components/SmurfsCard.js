@@ -1,5 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { deleteSmurf } from '../actions/actions';
+import { CardActions, IconButton, Tooltip } from '@material-ui/core';
+import { Delete as DeleteIcon } from '@material-ui/icons';
+
 
 const Smurf = styled.div`
   font-size:18px;
@@ -16,14 +21,25 @@ const Smurf = styled.div`
 
 
 const SmurfsCard = (props) => {
+    const handleDelete = () => {
+        props.deleteSmurf(props.smurf.id)
+    }
 
     return (
         <Smurf>
             <h2>{props.smurf.name}</h2>
             <h3>Age: {props.smurf.age}</h3>
             <h3>Height: {props.smurf.height}</h3>
+            <CardActions>
+                <Tooltip title="delete">
+                    <IconButton><DeleteIcon onClick={handleDelete} /></IconButton>
+                </Tooltip>
+            </CardActions>
         </Smurf>
     )
 };
 
-export default SmurfsCard;
+export default connect(
+    null,
+    { deleteSmurf }
+)(SmurfsCard)
